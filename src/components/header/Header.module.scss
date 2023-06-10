@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  padding: 25px 10%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(121, 112, 112, 0.8);
+
+  span {
+    cursor: pointer;
+  }
+
+  .link {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 38px;
+    padding-right: 50px;
+    text-decoration: none;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    color: #212427;
+    text-transform: uppercase;
+
+    .logo {
+      text-align: left;
+      font-size: 1.33rem;
+    }
+  }
+}
+
+.home_header {
+  display: flex;
+  padding: 25px 10%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+}

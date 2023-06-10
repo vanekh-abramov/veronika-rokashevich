@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+
+  .link {
+    cursor: pointer;
+    padding-right: 10%;
+    text-decoration: none;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    color: #212427;
+    text-transform: uppercase;
+  }
+}

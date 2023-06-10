@@ -1,0 +1,27 @@
+.home_app {
+  background: url("./assets/pictures/photo_2023-06-05_22-21-11\ \(2\).jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 60px 10%;
+}
+
+.home_content {
+  margin: 100px auto;
+}
