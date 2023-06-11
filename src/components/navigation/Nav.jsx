@@ -1,21 +1,23 @@
 import React from "react";
 import classes from "./Nav.module.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Nav = () => {
+  const { t } = useTranslation();
   return (
     <nav className={classes.nav}>
       <Link className={classes.link} to={"/resume"}>
-        РЕЗЮМЕ
+        {t("РЕЗЮМЕ")}
       </Link>
       <Link className={classes.link} to={"/gallery"}>
-        ГАЛЕРЕЯ
+        {t("ГАЛЕРЕЯ")}
       </Link>
       <Link className={classes.link} to={"/exhibitions"}>
-        ВЫСТАВКИ
+        {t("ВЫСТАВКИ")}
       </Link>
       <Link className={classes.link} to={"/contacts"}>
-        КОНТАКТЫ
+        {t("КОНТАКТЫ")}
       </Link>
     </nav>
   );

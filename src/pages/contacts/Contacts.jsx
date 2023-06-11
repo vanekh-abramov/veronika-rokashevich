@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import classes from "./Contacts.module.scss";
 import cl from "classnames";
+import { useTranslation } from "react-i18next";
 
 const Contacts = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
   const [message, setMessage] = useState("");
+
+  const { t } = useTranslation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,17 +25,17 @@ const Contacts = () => {
   return (
     <div className={classes.contacts_wrapper}>
       <div className={classes.contact_block}>
-        <h2 className={classes.title}>КОНТАКТЫ</h2>
+        <h2 className={classes.title}>{t("КОНТАКТЫ")}</h2>
         <div className={classes.contact_info}>
           <div className={classes.info_string}>
-            <p className={classes.info_title}>Адрес мастреской:</p>
+            <p className={classes.info_title}>{t("Адрес мастреской:")}</p>
             <p className={classes.info_desc}>
-              Беларусь, город Минск, ул. Ленина д.15
+              {t("Беларусь, город Минск, ул. Ленина д.15")}
             </p>
           </div>
 
           <div className={cl(classes.info_string)}>
-            <p className={classes.info_title}>Teл. / Whatsapp:</p>
+            <p className={classes.info_title}>{t("Teл. / Whatsapp:")}</p>
             <p className={classes.href_cover}>
               <a className={classes.info_desc} href='tel:+375296044160'>
                 +375296044160
@@ -78,7 +81,7 @@ const Contacts = () => {
         </div>
       </div>
       <div className={classes.enquiry_form}>
-        <h2 className={classes.title}>ФОРМА ЗАПРОСА</h2>
+        <h2 className={classes.title}>{t("ФОРМА ЗАПРОСА")}</h2>
 
         <form
           className={classes.form}
@@ -90,34 +93,45 @@ const Contacts = () => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             name='name'
-            placeholder='ИМЯ'
+            placeholder={t("ИМЯ")}
             required
           />
           <input
             onChange={(e) => setEmail(e.target.value)}
             type='email'
             name='email'
-            placeholder='Е-МЕЙЛ'
+            placeholder={t("Е-МЕЙЛ")}
             required
           />
           <input
             onChange={(e) => setTel(e.target.value)}
             type='tel'
             name='tel'
-            placeholder='ТЕЛЕФОН'
+            placeholder={t("ТЕЛЕФОН")}
             required
           />
           <input
             onChange={(e) => setMessage(e.target.value)}
             type='text'
             name='text'
-            placeholder='НАПИШИТЕ СООБЩЕНИЕ'
+            placeholder={t("НАПИШИТЕ СООБЩЕНИЕ")}
             required
           />
-
-          <button className={classes.button} type='submit' value='ОТПРАВИТЬ'>
-            ОТПРАВИТЬ
-          </button>
+          <a
+            className={classes.button}
+            href={`mailto:vanekh.abramov@gmail.com?subject=client&body=${
+              "name: " +
+              name +
+              "email: " +
+              email +
+              "tel: " +
+              tel +
+              "message: " +
+              message
+            }`}
+          >
+            {t("ОТПРАВИТЬ")}
+          </a>
         </form>
       </div>
     </div>
