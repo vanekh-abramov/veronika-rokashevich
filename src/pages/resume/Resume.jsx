@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Resume.module.scss";
 import svImage from "../../assets/pictures/cv.jpg";
 import first from "../../assets/pictures/cv1.jpg";
@@ -10,6 +10,16 @@ import cl from "classnames";
 import { useTranslation } from "react-i18next";
 
 const Resume = () => {
+  const [windowWidth, setWindowWidth] = useState(
+    document.documentElement.clientWidth
+  );
+
+  useEffect(() => {
+    window.onresize = () => {
+      setWindowWidth(document.documentElement.clientWidth);
+    };
+  }, [windowWidth]);
+
   const { t } = useTranslation();
 
   return (
@@ -76,15 +86,30 @@ const Resume = () => {
           <span>{t("перенести")}</span> {t("их")} <span>{t("на холст")}.</span>{" "}
         </p>
       </div>
-      <div className={classes.wrapper_third}>
-        <img className={classes.bot_image} src={fours} alt='' />
-        <p className={classes.bot_image_text}>
-          {t(
-            "Для обозначения свой стилистики использует понятие «рефлексивной абстракции» - переосмысление человеческой активности через призму самосознания. Реализует свои творческие задумки с помощью круглых холстов, дсп, акрила, маркеров, неоновых лент и экспериментирует со смешенными техниками. Изучает влияние цвета на психофизическое состояние человека."
-          )}
-        </p>
-        <img className={classes.bot_image_sec} src={fifth} alt='' />
-      </div>
+      {windowWidth > 1150 ? (
+        <div className={classes.wrapper_third}>
+          <img className={classes.bot_image} src={fours} alt='' />
+          <p className={classes.bot_image_text}>
+            {t(
+              "Для обозначения свой стилистики использует понятие «рефлексивной абстракции» - переосмысление человеческой активности через призму самосознания. Реализует свои творческие задумки с помощью круглых холстов, дсп, акрила, маркеров, неоновых лент и экспериментирует со смешенными техниками. Изучает влияние цвета на психофизическое состояние человека."
+            )}
+          </p>
+          <img className={classes.bot_image_sec} src={fifth} alt='' />
+        </div>
+      ) : (
+        <div className={classes.wrapper_third_ww}>
+          <div src='' alt='' className={classes.img_wrapper_ww}>
+            <img className={classes.bot_image_ww} src={fours} alt='' />
+            <img className={classes.bot_image_sec_ww} src={fifth} alt='' />
+          </div>
+          <p className={classes.bot_image_text_ww}>
+            {t(
+              "Для обозначения свой стилистики использует понятие «рефлексивной абстракции» - переосмысление человеческой активности через призму самосознания. Реализует свои творческие задумки с помощью круглых холстов, дсп, акрила, маркеров, неоновых лент и экспериментирует со смешенными техниками. Изучает влияние цвета на психофизическое состояние человека."
+            )}
+          </p>
+        </div>
+      )}
+
       <div className={classes.interview_section}>
         <h2 className={classes.interview_title}>{t("Интервью")}</h2>
         <ul className={classes.interview_list}>
@@ -105,7 +130,9 @@ const Resume = () => {
         </ul>
       </div>
       <div className={classes.interview_section}>
-        <h2 className={classes.interview_title}>{t("Сотрудничество с галереями")}</h2>
+        <h2 className={classes.interview_title}>
+          {t("Сотрудничество с галереями")}
+        </h2>
         <ul className={classes.interview_list}>
           <li className={classes.interview_item}>{t("DK gallery")}</li>
           <li className={classes.interview_item}>{t("Gallarty.ru")}</li>

@@ -10,3 +10,10 @@
 a {
   text-decoration: none;
 }
+
+@media (max-width: 1200px) {
+  * {
+    font-size: 22px;
+  }
+
+}

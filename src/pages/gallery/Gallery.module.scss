@@ -1,8 +1,22 @@
 .gallery_wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 60px;
+  // align-content: center;
+  // justify-content: center;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 60px;
-  text-decoration: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-content: center;
+    justify-content: center;
+  }
 
   .name {
     width: 100%;
