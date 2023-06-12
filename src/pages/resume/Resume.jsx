@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./Resume.module.scss";
 import svImage from "../../assets/pictures/cv.jpg";
 import first from "../../assets/pictures/cv1.jpg";
@@ -9,17 +9,7 @@ import fifth from "../../assets/pictures/cv5.jpg";
 import cl from "classnames";
 import { useTranslation } from "react-i18next";
 
-const Resume = () => {
-  const [windowWidth, setWindowWidth] = useState(
-    document.documentElement.clientWidth
-  );
-
-  useEffect(() => {
-    window.onresize = () => {
-      setWindowWidth(document.documentElement.clientWidth);
-    };
-  }, [windowWidth]);
-
+const Resume = ({ windowWidth }) => {
   const { t } = useTranslation();
 
   return (
@@ -75,7 +65,7 @@ const Resume = () => {
         </div>
         <p className={classes.public_text}>
           <span>{t("Художницу")}</span> {t("интересует")}{" "}
-          <span>{t("процесс рефлексии")}</span> {t("в творчестве. ")}
+          <span>{t("процесс рефлексии")}</span> {t("в творчестве.")}
           <span>{t("Психология")}</span> ,{" "}
           {t("нейробиология, архитектоника и опыт")}{" "}
           <span>{t("самопознания")}</span> {t("через")}{" "}

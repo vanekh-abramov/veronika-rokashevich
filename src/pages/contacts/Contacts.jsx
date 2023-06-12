@@ -28,14 +28,14 @@ const Contacts = () => {
         <h2 className={classes.title}>{t("КОНТАКТЫ")}</h2>
         <div className={classes.contact_info}>
           <div className={classes.info_string}>
-            <p className={classes.info_title}>{t("Адрес мастреской:")}</p>
-            <p className={classes.info_desc}>
+            <p className={cl(classes.info_title)}>{t("Адрес мастреской:")}</p>
+            <p className={cl(classes.info_desc, classes.adress)}>
               {t("Беларусь, город Минск, ул. Ленина д.15")}
             </p>
           </div>
 
           <div className={cl(classes.info_string)}>
-            <p className={classes.info_title}>{t("Teл. / Whatsapp:")}</p>
+            <p className={classes.info_title}>Tel. / Whatsapp:</p>
             <p className={classes.href_cover}>
               <a className={classes.info_desc} href='tel:+375296044160'>
                 +375296044160

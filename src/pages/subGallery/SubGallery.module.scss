@@ -1,0 +1,34 @@
+.subgallery_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 60px;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .image_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    .sub_image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .title {
+        font-weight: 900;
+      }
+
+      .param {
+      }
+    }
+  }
+}

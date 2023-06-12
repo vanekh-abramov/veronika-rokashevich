@@ -6,9 +6,15 @@
 
   .exhibition_block {
     .exhibition_string {
+      font-size: 1rem;
       display: flex;
       line-height: 28px;
+      padding-bottom: 1%;
 
+      @media (max-width: 1100px) {
+        flex-direction: column;
+        padding-bottom: 2%;
+      }
       .date {
         min-width: 300px;
         color: #ed005e;

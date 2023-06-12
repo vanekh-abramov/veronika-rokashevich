@@ -8,7 +8,7 @@ const Exhibitions = () => {
 
   return (
     <div className={classes.exhibition_container}>
-      <h2 className={classes.exhibition_title}>ИЗБРАННЫЕ</h2>
+      <h2 className={classes.exhibition_title}>{t("ИЗБРАННЫЕ")}</h2>
       <div className={classes.exhibition_block}>
         {exhibitions.map(({ date, desc }, key) => (
           <div key={key} className={classes.exhibition_string}>

@@ -10,10 +10,18 @@ import Resume from "./pages/resume/Resume";
 import Gallery from "./pages/gallery/Gallery";
 import Exhibitions from "./pages/exhibitions/Exhibitions";
 import SubGallery from "./pages/subGallery/SubGallery";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 function App() {
   const location = useLocation();
+  const [windowWidth, setWindowWidth] = useState(
+    document.documentElement.clientWidth
+  );
+  useEffect(() => {
+    window.onresize = () => {
+      setWindowWidth(document.documentElement.clientWidth);
+    };
+  }, [windowWidth]);
 
   return (
     <Suspense fallback=''>
@@ -22,7 +30,7 @@ function App() {
           [classes.home_app]: location.pathname === "/",
         })}
       >
-        <Header children={<Nav />} />
+        <Header children={<Nav />} windowWidth={windowWidth} />
         <section
           className={cl(classes.content, {
             [classes.home_content]: location.pathname === "/",
@@ -30,7 +38,10 @@ function App() {
         >
           <Routes>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/resume' element={<Resume />}></Route>
+            <Route
+              path='/resume'
+              element={<Resume windowWidth={windowWidth} />}
+            ></Route>
             <Route path='/gallery' element={<Gallery />}></Route>
             <Route path='/exhibitions' element={<Exhibitions />}></Route>
             <Route path='/contacts' element={<Contacts />}></Route>

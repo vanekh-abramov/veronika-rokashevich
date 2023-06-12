@@ -16,8 +16,6 @@ const Gallery = () => {
       });
   }, []);
 
-  console.log(data?.data?.map((el) => el?.attributes.title));
-
   return (
     <div className={classes.gallery_wrapper}>
       {data?.data?.map((el) =>

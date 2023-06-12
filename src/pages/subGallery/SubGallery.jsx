@@ -19,19 +19,25 @@ const SubGallery = () => {
   }, []);
 
   let result = data?.data?.map((el) => el?.attributes?.subcollections);
-  let sourse = result?.[params.id - 1].data?.map(
-    (image) => image?.attributes?.image?.data[0]?.attributes?.url
+
+  const additional = result?.[params.id - 1].data?.map(
+    (image) => image?.attributes
   );
-  console.log(sourse);
-  // console.log(data?.data?.map((el) => el?.attributes?.subcollections));
 
   return (
     <div className={classes.subgallery_wrapper}>
-      <div>
-        {sourse?.map((url) => (
-          <img src={host + url} alt='sa' />
-        ))}
-      </div>
+      {additional?.map((el) => {
+        return (
+          <div className={classes.image_box}>
+            <img src={host + el?.image?.data?.[0]?.attributes?.url} alt='' />
+            <div className={classes.sub_image}>
+              <p className={classes.title}>{el.title}</p>
+              <p className={classes.param}>{el.size}</p>
+              <p className={classes.param}>{el.texture}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
