@@ -33,21 +33,9 @@
   }
 }
 
-.absolute_wrapper {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #6d6e72;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-  .slider_image {
-    height: auto;
-    width: 40%;
-  }
+.slider_image {
+  height: auto;
+  width: 40%;
 }
 
 .close_swiper {
@@ -65,4 +53,15 @@
   @media (max-width: 700px) {
     height: 30px;
   }
+}
+.absolute_wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6d6e72;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
