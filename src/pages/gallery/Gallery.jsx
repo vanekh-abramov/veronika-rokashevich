@@ -21,7 +21,7 @@ const Gallery = () => {
   return (
     <div className={classes.gallery_wrapper}>
       {data?.data?.map((el) => (
-        <Link key={el.id} to={local + "/subgallery/" + el.id}>
+        <Link key={el.id} to={"/subgallery/" + el.id}>
           <img
             src={el?.attributes?.image?.data?.[0]?.attributes?.url}
             alt='gallery'
