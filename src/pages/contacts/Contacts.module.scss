@@ -8,6 +8,11 @@
   }
 
   .contact_block {
+    @media (max-width: 1100px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .title {
       @media (max-width: 1200px) {
         font-size: 56px;
@@ -77,6 +82,7 @@
 
     @media (max-width: 1200px) {
       font-size: 56px;
+      text-align: center;
     }
     @media (max-width: 1000px) {
       font-size: 48px;

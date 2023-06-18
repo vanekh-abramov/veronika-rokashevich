@@ -10,4 +10,24 @@
   align-items: center;
   text-align: center;
   color: #ffffff;
+
+  @media (max-width: 800px) {
+    height: 100px;
+    bottom: -100px;
+  }
+  @media (max-width: 600px) {
+    height: 80px;
+    bottom: -80px;
+  }
+  @media (max-width: 400px) {
+    height: 60px;
+    bottom: -60px;
+  }
+
+  .footer_text {
+    @media (max-width: 600px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
 }
