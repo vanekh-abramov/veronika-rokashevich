@@ -9,7 +9,9 @@ const Gallery = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/galleries?[populate]=*")
+      .get(
+        "https://strapi-demo-app-oc62.onrender.com/api/galleries?[populate]=*"
+      )
       .then((res) => {
         setData(res.data);
         return data;
@@ -18,16 +20,17 @@ const Gallery = () => {
 
   return (
     <div className={classes.gallery_wrapper}>
-      {data?.data?.map((el) =>
-        el?.attributes?.link.data.map((i) => (
-          <Link key={el.id} to={local + "/subgallery/" + el.id}>
-            <img src={host + i?.attributes.url} alt='gallery' />
-            <div className={classes.name}>
-              <p className={classes.name_text}>{el?.attributes?.title}</p>
-            </div>
-          </Link>
-        ))
-      )}
+      {data?.data?.map((el) => (
+        <Link key={el.id} to={local + "/subgallery/" + el.id}>
+          <img
+            src={el?.attributes?.image?.data?.[0]?.attributes?.url}
+            alt='gallery'
+          />
+          <div className={classes.name}>
+            <p className={classes.name_text}>{el?.attributes?.title}</p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };

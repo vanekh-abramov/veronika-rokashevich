@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./SubGallery.module.scss";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { host } from "../../assets/links/host";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -25,18 +24,18 @@ const SubGallery = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/galleries?populate=deep,3")
+      .get(
+        "https://strapi-demo-app-oc62.onrender.com/api/galleries?populate=deep,3"
+      )
       .then((res) => {
         setData(res.data);
         return data;
       });
   }, []);
 
-  let result = data?.data?.map((el) => el?.attributes?.subcollections);
-
-  const additional = result?.[params.id - 1].data?.map(
-    (image) => image?.attributes
-  );
+  let param = data?.data?.[
+    params.id - 1
+  ]?.attributes?.subcollections?.data?.map((el) => el?.attributes);
 
   const openToggle = () => {
     setOpen(true);
@@ -58,14 +57,17 @@ const SubGallery = () => {
             modules={[Pagination, Navigation]}
             className='mySwiper'
           >
-            {additional?.map((el) => {
+            {param?.map((el) => {
               return (
-                <div className={classes.image_box}>
-                  <SwiperSlide key={el?.image?.data?.[0]?.attributes?.url}>
+                <div
+                  key={el?.image?.data?.[0]?.attributes?.url}
+                  className={classes.image_box}
+                >
+                  <SwiperSlide>
                     <img
                       className={classes.slider_image}
                       onClick={openToggle}
-                      src={host + el?.image?.data?.[0]?.attributes?.url}
+                      src={el?.image?.data?.[0]?.attributes?.url}
                       alt=''
                     />
                     <div className={classes.sub_image}>
@@ -82,12 +84,15 @@ const SubGallery = () => {
         </div>
       ) : (
         <div className={classes.subgallery_wrapper}>
-          {additional?.map((el) => {
+          {param?.map((el) => {
             return (
-              <div className={classes.image_box}>
+              <div
+                key={el?.image?.data?.[0]?.attributes?.url}
+                className={classes.image_box}
+              >
                 <img
                   onClick={openToggle}
-                  src={host + el?.image?.data?.[0]?.attributes?.url}
+                  src={el?.image?.data?.[0]?.attributes?.url}
                   alt=''
                 />
                 <div className={classes.sub_image}>

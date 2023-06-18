@@ -47,6 +47,9 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
   /* text-rendering: optimizeSpeed; */
   line-height: 1.5;
 }

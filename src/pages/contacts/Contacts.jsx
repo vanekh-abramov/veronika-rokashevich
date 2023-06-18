@@ -47,7 +47,7 @@ const Contacts = () => {
             <p className={classes.info_title}>Email:</p>
             <p className={classes.href_cover}>
               <a
-                className={classes.info_desc}
+                className={cl(classes.info_desc, classes.underline)}
                 href='mailto:veronikav47@gmail.com'
               >
                 veronikav47@gmail.com
@@ -71,7 +71,7 @@ const Contacts = () => {
             <p className={classes.info_title}>Behance:</p>
             <p className={classes.href_cover}>
               <a
-                className={classes.info_desc}
+                className={cl(classes.info_desc, classes.underline)}
                 href='https://www.behance.net/zojac?tracking_source=search_projects%7Czojac'
               >
                 zojac
