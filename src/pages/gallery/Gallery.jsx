@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Gallery.module.scss";
 import axios from "axios";
-import { host, local } from "../../assets/links/host";
 import { Link } from "react-router-dom";
 
 const Gallery = () => {
@@ -16,7 +15,8 @@ const Gallery = () => {
         setData(res.data);
         return data;
       });
-  }, []);
+    console.log(data);
+  }, [data]);
 
   return (
     <div className={classes.gallery_wrapper}>
