@@ -19,11 +19,21 @@
 
       @media (max-width: 1100px) {
         flex-direction: column;
-        padding-bottom: 2%;
+        padding-bottom: 15px;
       }
       .date {
         min-width: 300px;
         color: #ed005e;
+
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+      }
+
+      .desc {
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
       }
     }
   }

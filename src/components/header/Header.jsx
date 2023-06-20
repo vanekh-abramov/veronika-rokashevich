@@ -73,7 +73,11 @@ const Header = ({ children, windowWidth }) => {
             <h1 className={classes.logo}>{t(`Вероника Рокашевич`)}</h1>
           </Link>
           <div onClick={toggleLanguage} className={classes.lang_switcher}>
-            <span>ENG</span>|<span>RU</span>
+            <span>ENG</span>
+            <span className={classes.stick}> |</span>
+
+            {/* <div className={classes.stick}></div> */}
+            <span>RU</span>
           </div>
         </header>
       ) : (
@@ -87,7 +91,11 @@ const Header = ({ children, windowWidth }) => {
           </Link>
           {children}
           <div onClick={toggleLanguage} className={classes.lang_switcher}>
-            <span>ENG</span>|<span>RU</span>
+            <span>ENG</span>
+            <span className={classes.stick}> |</span>
+
+            {/* <div className={classes.stick}></div> */}
+            <span>RU</span>
           </div>
         </header>
       )}

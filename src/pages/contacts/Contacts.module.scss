@@ -1,10 +1,11 @@
 .contacts_wrapper {
   display: flex;
   justify-content: space-between;
+  gap: 255px;
 
   @media (max-width: 1100px) {
     flex-direction: column;
-    gap: 20px;
+    gap: 60px;
   }
 
   .contact_block {
@@ -46,6 +47,7 @@
       }
       @media (max-width: 600px) {
         font-size: 16px;
+        margin-bottom: 0px;
       }
 
       .info_title {
@@ -148,6 +150,7 @@
       @media (max-width: 768px) {
         height: 45px;
         margin-top: 30px;
+        margin-bottom: 30px;
         font-size: 32px;
         line-height: 25px;
       }
