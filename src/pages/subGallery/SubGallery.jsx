@@ -16,7 +16,7 @@ import "./styles.css";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-const SubGallery = () => {
+const SubGallery = ({ windowWidth }) => {
   const [data, setData] = useState();
   const [open, setOpen] = useState(false);
 
@@ -45,6 +45,8 @@ const SubGallery = () => {
     setOpen(false);
   };
 
+  console.log(windowWidth);
+
   return (
     <>
       {open ? (
@@ -53,7 +55,7 @@ const SubGallery = () => {
             pagination={{
               type: "fraction",
             }}
-            navigation={true}
+            navigation={true ? windowWidth > 768 : false}
             modules={[Pagination, Navigation]}
             className='mySwiper'
           >

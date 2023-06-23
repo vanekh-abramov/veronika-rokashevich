@@ -92,7 +92,7 @@ const Header = ({ children, windowWidth }) => {
           {children}
           <div onClick={toggleLanguage} className={classes.lang_switcher}>
             <span>ENG</span>
-            <span className={classes.stick}> |</span>
+            <span className={classes.stick}>|</span>
 
             {/* <div className={classes.stick}></div> */}
             <span>RU</span>

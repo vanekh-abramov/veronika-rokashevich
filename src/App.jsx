@@ -34,6 +34,7 @@ function App() {
         <section
           className={cl(classes.content, {
             [classes.home_content]: location.pathname === "/",
+            [classes.contacts_content]: location.pathname === "/contacts",
           })}
         >
           <Routes>
@@ -45,7 +46,10 @@ function App() {
             <Route path='/gallery' element={<Gallery />}></Route>
             <Route path='/exhibitions' element={<Exhibitions />}></Route>
             <Route path='/contacts' element={<Contacts />}></Route>
-            <Route path='/subgallery/:id' element={<SubGallery />}></Route>
+            <Route
+              path='/subgallery/:id'
+              element={<SubGallery windowWidth={windowWidth} />}
+            ></Route>
           </Routes>
         </section>
         <Footer />
