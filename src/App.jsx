@@ -17,6 +17,9 @@ function App() {
   const [windowWidth, setWindowWidth] = useState(
     document.documentElement.clientWidth
   );
+
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     window.onresize = () => {
       setWindowWidth(document.documentElement.clientWidth);
@@ -49,11 +52,17 @@ function App() {
             <Route path='/contacts' element={<Contacts />}></Route>
             <Route
               path='/subgallery/:id'
-              element={<SubGallery windowWidth={windowWidth} />}
+              element={
+                <SubGallery
+                  windowWidth={windowWidth}
+                  setOpen={setOpen}
+                  open={open}
+                />
+              }
             ></Route>
           </Routes>
         </section>
-        <Footer />
+        {open ? <></> : <Footer />}
       </div>
     </Suspense>
   );

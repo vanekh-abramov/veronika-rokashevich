@@ -16,26 +16,26 @@ import "./styles.css";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-const SubGallery = ({ windowWidth }) => {
+const SubGallery = ({ windowWidth, setOpen, open }) => {
   const [data, setData] = useState();
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   const params = useParams();
 
   useEffect(() => {
     axios
       .get(
-        "https://strapi-demo-app-oc62.onrender.com/api/galleries?populate=deep,3"
+        `https://strapi-demo-app-oc62.onrender.com/api/galleries/${params.id}?populate=deep,3`
       )
       .then((res) => {
         setData(res.data);
         return data;
       });
-  }, []);
+  }, [params]);
 
-  let param = data?.data?.[
-    params.id - 1
-  ]?.attributes?.subcollections?.data?.map((el) => el?.attributes);
+  let param = data?.data?.attributes?.subcollections?.data?.map(
+    (el) => el?.attributes
+  );
 
   const openToggle = () => {
     setOpen(true);
@@ -44,8 +44,6 @@ const SubGallery = ({ windowWidth }) => {
   const closeToggle = () => {
     setOpen(false);
   };
-
-  console.log(windowWidth);
 
   return (
     <>
@@ -70,7 +68,7 @@ const SubGallery = ({ windowWidth }) => {
                       className={classes.slider_image}
                       onClick={openToggle}
                       src={el?.image?.data?.[0]?.attributes?.url}
-                      alt=''
+                      alt={el.title}
                     />
                     <div className={classes.sub_image}>
                       <p className={classes.title}>{el.title}</p>
@@ -95,7 +93,7 @@ const SubGallery = ({ windowWidth }) => {
                 <img
                   onClick={openToggle}
                   src={el?.image?.data?.[0]?.attributes?.url}
-                  alt=''
+                  alt={el.title}
                 />
                 <div className={classes.sub_image}>
                   <p className={classes.title}>{el.title}</p>

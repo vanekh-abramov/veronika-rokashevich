@@ -15,8 +15,7 @@ const Gallery = () => {
         setData(res.data);
         return data;
       });
-    console.log(data);
-  }, [data]);
+  }, []);
 
   return (
     <div className={classes.gallery_wrapper}>

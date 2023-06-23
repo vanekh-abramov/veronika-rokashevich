@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Exhibition.module.scss";
-import { exhibitions } from "../../data/exhibitions";
 import { useTranslation } from "react-i18next";
 import i18n from "../../settings/i18next";
 import axios from "axios";
@@ -20,10 +19,6 @@ const Exhibitions = () => {
         return data;
       });
   }, [i18n.language]);
-
-  const mapping = data?.data?.map((i) => i?.attributes);
-  console.log(mapping);
-  console.log(i18n.language);
 
   return (
     <div className={classes.exhibition_container}>
