@@ -35,6 +35,7 @@ function App() {
           className={cl(classes.content, {
             [classes.home_content]: location.pathname === "/",
             [classes.contacts_content]: location.pathname === "/contacts",
+            [classes.exhibitions_content]: location.pathname === "/exhibitions",
           })}
         >
           <Routes>
