@@ -42,3 +42,12 @@
   margin: 130px auto;
   padding: 10%;
 }
+
+.contacts_content {
+  margin: 0;
+  padding: 60px 10%;
+
+  @media (max-width: 768px) {
+    padding: 30px 10%;
+  }
+}
