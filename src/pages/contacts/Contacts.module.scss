@@ -80,6 +80,10 @@
 }
 
 .enquiry_form {
+  min-width: 600px;
+  @media (max-width: 1200px) {
+    min-width: auto;
+  }
   .title {
     white-space: nowrap;
 

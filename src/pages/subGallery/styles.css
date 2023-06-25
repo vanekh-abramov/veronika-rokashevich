@@ -5,7 +5,8 @@
 
 .swiper-pagination-fraction {
   text-align: start;
-  padding: 0 0 10% 5%;
+  padding: 0 0 5% 5%;
+  color: #fff;
 }
 
 .swiper-slide {
@@ -28,9 +29,7 @@
   object-fit: cover;
 }
 
-.swiper-pagination-fraction {
-  color: #fff;
-}
+
 
 .swiper-button-next,
 .swiper-button-prev {
